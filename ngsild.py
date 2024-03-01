@@ -31,7 +31,9 @@ class NgsildHandler(DecodedDataHandler):
 
 
     def end(self):
-        self.broker.update(self.cur_entity)
+        self.broker.batch.update([self.cur_entity,])
+        # Use batch.update because client.update or client.entities.update
+        # delete the entity !!
 
 
     def entity_from_id(self, id):
