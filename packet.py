@@ -5,7 +5,7 @@ from BaseHandlers import DecodedDataHandler
 class Packet :
     "Packet decoder. Transform raw bytes to chunk of data interpreted by the codecs"
 
-    DATA_FORMAT = "=BBhhhhhhhhhhhhii"
+    DATA_FORMAT = "=BBHHHHHHHHHHHHii"
 
     def fromstr(strdata):
         "Create a packet from the hex representation of raw data"
