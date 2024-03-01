@@ -38,5 +38,5 @@ class Packet :
         
         for i,f in enumerate(codec) :
             converted_value = f[0](self.raw[i])
-            if(converted_value):
+            if(converted_value is not None):
                 handler.handle_property(f[1], converted_value, f[2])
