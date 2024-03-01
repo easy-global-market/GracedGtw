@@ -18,7 +18,7 @@ class SerialSource:
         while(True):
             line = self.file.readline()
             if (line.startswith(DATA_HEAD)):
-                data = line.split(DATA_HEAD)[1].decode()
+                data = line.split(DATA_HEAD)[1].decode().strip()
                 return datetime.now(),data
 
         
