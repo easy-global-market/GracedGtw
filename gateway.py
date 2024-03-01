@@ -17,8 +17,14 @@ if __name__ == "__main__":
                     epilog='TETRIS/EGM - GRACED Project')
     parser.add_argument('-f','--file',action='store')
     parser.add_argument("-c", "--create", action="store_true", help="Update device entities before running")
+    parser.add_argument("-l", "--logfile", action="store", help="Log the processed timestamp and data packet in a file in a format readable by the -f option")
     args = parser.parse_args()
     print(args)
+
+    if (args.logfile):
+        logfile = open(args.logfile,"a")
+    else:
+        logfile = None
 
     # Entities updater
     if (args.create) :
@@ -38,6 +44,8 @@ if __name__ == "__main__":
 
     # Process the stream
     for time_stamp, data in datasource:
+        if (logfile):
+            logfile.write(f"{time_stamp.isoformat()},{data}\n")
         packet = Packet.fromstr(data)
         codec = device_decoder.get(packet.id)
         if (codec) :

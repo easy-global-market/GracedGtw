@@ -24,6 +24,7 @@ class FileSource:
             if (line=="") :
                 raise StopIteration  
             try:
+                line=line.strip()
                 ts,data = line.split(',',1)
             except ValueError:
                 continue
