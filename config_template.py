@@ -33,7 +33,7 @@ authentifier = BearerAuth(client_id, client_secret, url_keycloak)
 
 url_graced_int = "graced-broker-url"
 port_graced_int = 443
-context = 'https://easy-global-market.github.io/ngsild-api-data-models/graced/jsonld-contexts/graced.jsonld'
+context = 'https://easy-global-market.github.io/ngsild-api-data-models/projects/jsonld-contexts/graced.jsonld'
 
 
 stellio = NgsildHandler(Client(url_graced_int, port_graced_int, secure=True, custom_auth=authentifier), sensor_entity_format, context)
